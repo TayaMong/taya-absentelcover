@@ -1,0 +1,30 @@
+<script>
+  if (localStorage.getItem('sw_logged_in') !== 'true' || localStorage.getItem('sw_user') !== 'admin') {
+    window.location.replace('../login.html');
+  }
+</script>
+
+<h1 class="title-main" style="font-size: 24px;">Scan QR Mahasiswa</h1>
+<p class="subtitle-spaced" style="letter-spacing: 0.14em;">Arahkan kamera ke kartu / QR mahasiswa</p>
+
+<!-- Area Kamera Scanner -->
+<div class="scanner-box neu-card">
+  <div id="qrReader"></div>
+</div>
+
+<!-- Kotak Status Hasil Scan (Berubah Hijau / Merah) -->
+<div class="status-banner neu-card status-idle" id="scanStatusBox">
+  <div class="status-icon" id="scanStatusIcon">📷</div>
+  <div class="status-detail">
+    <p class="status-title" id="scanStatusTitle">Menunggu Scan QR...</p>
+    <p class="status-desc" id="scanStatusDesc">Kamera siap memindai NIM mahasiswa</p>
+  </div>
+</div>
+
+<!-- Input Manual Cadangan (Jika kamera tidak tersedia di PC) -->
+<form class="manual-scan-form" id="manualScanForm">
+  <div class="search-bar neu-inset" style="margin-top: 10px; flex: 1;">
+    <input type="text" id="manualNimInput" placeholder="Atau ketik NIM manual lalu Enter..." />
+  </div>
+  <button type="submit" class="btn-primary go-btn" style="margin-top: 10px;">Cek</button>
+</form>

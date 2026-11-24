@@ -1,0 +1,32 @@
+<script>
+  if (localStorage.getItem('sw_logged_in') !== 'true' || localStorage.getItem('sw_user') !== 'admin') {
+    window.location.replace('../login.html');
+  }
+</script>
+
+<h1 class="title-main" style="font-size: 24px;">Buat QR Mahasiswa</h1>
+<p class="subtitle-spaced" style="letter-spacing: 0.14em;">Cari nama atau NIM dari Spreadsheet</p>
+
+<!-- Search Bar Nama / NIM -->
+<div class="search-bar neu-inset">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="11" cy="11" r="7" />
+    <path d="M20 20l-3.5-3.5" stroke-linecap="round" />
+  </svg>
+  <input type="text" id="searchMahasiswaInput" placeholder="Cari Nama atau NIM mahasiswa..." />
+</div>
+
+<!-- Hasil Pencarian Mahasiswa (Scrollable) -->
+<div class="student-list" id="studentResultList">
+  <p class="feed-meta" style="text-align: center; padding: 12px;">Memuat data mahasiswa dari Spreadsheet...</p>
+</div>
+
+<!-- Area Preview QR Code yang Dihasilkan -->
+<div class="qr-result-card neu-card" id="qrOutputCard" style="display: none;">
+  <div id="qrCanvasBox" class="qr-canvas-wrap"></div>
+  <div class="qr-student-info">
+    <p class="challenge-text" id="qrStudentName">-</p>
+    <p class="feed-meta" id="qrStudentNim">-</p>
+    <button type="button" class="btn-primary explore-btn" id="downloadQrBtn">Download QR PNG</button>
+  </div>
+</div>
